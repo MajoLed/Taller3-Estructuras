@@ -1,16 +1,14 @@
 package Ordenamiento;
 
-public class SelectionSort extends BaseSort {
+public class InsertionSort extends BaseSort {
 
     @Override
     public <T extends Comparable<T>> void sort(T[] a) {
         int n = a.length;
-        for (int i = 0; i < n; i++) {
-            int min = i;
-            for (int j = i + 1; j < n; j++) {
-                if (less(a[j], a[min])) min = j;
+        for (int i = 1; i < n; i++) {
+            for (int j = i; j > 0 && less(a[j], a[j - 1]); j--) {
+                exch(a, j, j - 1);
             }
-            exch(a, i, min);   // siempre intercambia: exactamente N intercambios
         }
     }
 }
