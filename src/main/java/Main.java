@@ -97,7 +97,7 @@ public class Main {
     private static Persona[] cargarPersonas(String ruta) throws Exception {
         List<Persona> lista = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(ruta))) {
-            String linea = br.readLine(); // salta encabezado "id,lat,lon"
+            String linea = br.readLine(); // para saltar el encabezado
             while ((linea = br.readLine()) != null) {
                  String[] partes = linea.split(",");
                 int id = Integer.parseInt(partes[0].trim());
